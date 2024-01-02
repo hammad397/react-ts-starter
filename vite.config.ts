@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { terser } from 'rollup-plugin-terser';
+import checker from 'vite-plugin-checker';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
@@ -19,6 +20,9 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       tsconfigPaths(),
+      checker({
+        typescript: true,
+      }),
       mode !== 'development' &&
         terser({
           format: {

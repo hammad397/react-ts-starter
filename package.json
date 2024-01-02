@@ -11,10 +11,13 @@
     "cz": "git add . && git-cz",
     "lint": "eslint . --ext .ts,.tsx --color",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "type-check": "tsc --noEmit"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["yarn prettier --write"]
+    "*.{js,jsx,ts,tsx}": [
+      "yarn prettier --write"
+    ]
   },
   "config": {
     "commitizen": {
@@ -50,6 +53,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
+    "vite-plugin-checker": "^0.6.2",
     "vite-tsconfig-paths": "^4.2.3"
   }
 }
